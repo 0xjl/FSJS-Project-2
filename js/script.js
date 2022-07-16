@@ -1,5 +1,19 @@
-// showPage function - should output 9 student items
+//searchFilter function
 
+// insertInput function
+function insertInput() {
+  const header = document.querySelector(".header h2");
+  const input = `  
+  <label for="search" class="student-search">
+  <span>Search by name</span>
+  <input id="search" placeholder="Search by name...">
+  <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+  </label>
+  `;
+  header.insertAdjacentHTML("afterend", input);
+}
+
+// showPage function - should output 9 student items
 function showPage(list, page) {
   let startIndex = page * 9 - 9;
   let endIndex = page * 9;
@@ -25,8 +39,7 @@ function showPage(list, page) {
   }
 }
 
-// `addPagination` function
-
+// addPagination function
 function addPagination(list) {
   const numOfPages = Math.ceil(list.length / 9);
   const linkList = document.querySelector(".link-list");
@@ -48,6 +61,7 @@ function addPagination(list) {
   });
 }
 
-// Call functions
+// Calling the functions
+insertInput();
 showPage(data, 1);
 addPagination(data);
